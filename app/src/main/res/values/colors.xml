@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">@color/AmberA400</color>
+
+    <color name="White">#ffffff</color>
+
+    <color name="AmberA400">#FFC400</color>
+
+    <color name="GreenA400">#00E676</color>
+
+    <color name="LightGreen900">#33691E</color>
+
+    <color name="Indigo700">#303F9F</color>
+
+</resources>

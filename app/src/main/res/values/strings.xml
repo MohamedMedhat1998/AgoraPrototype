@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Agora</string>
+    <string name="user_name">User name *</string>
+    <string name="password">Password *</string>
+    <string name="log_in">LOG IN</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="or">OR</string>
+    <string name="connect_with_facebook">\t\tCONNECT WITH FACEBOOK\t\t</string>
+</resources>
