@@ -10,7 +10,7 @@
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".MainActivity">
+            tools:context=".UserInterface.MainActivity">
         <android.support.v7.widget.CardView
                 android:layout_width="300dp"
                 android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent"
@@ -18,8 +18,12 @@
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp" android:layout_marginTop="@dimen/vertical_login_card_margin"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginBottom="@dimen/vertical_login_card_margin" app:layout_constraintBottom_toBottomOf="parent">
-            <include layout="@layout/login_card_content"/>
+                android:layout_marginBottom="@dimen/vertical_login_card_margin"
+                app:layout_constraintBottom_toBottomOf="parent">
+            <FrameLayout
+                    android:id="@+id/signProcessContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
         </android.support.v7.widget.CardView>
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

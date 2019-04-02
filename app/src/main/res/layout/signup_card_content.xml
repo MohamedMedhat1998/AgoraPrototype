@@ -1,7 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+                android:layout_width="@dimen/login_logo_width"
+                android:layout_height="@dimen/login_logo_height"
+                app:srcCompat="@drawable/agora_icon"
+                android:id="@+id/imageView"
+                android:layout_marginTop="32dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"/>
+
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:id="@+id/tiUsernameSignUp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="64dp"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:hint="@string/user_name"
+                    android:id="@+id/etUserNameSignUp"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:id="@+id/tiFirstNameSignUp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/tiUsernameSignUp">
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:hint="@string/first_name"
+                    android:id="@+id/etFirstNameSignUp"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:id="@+id/tiLastNameSignUp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/tiFirstNameSignUp">
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:hint="@string/last_name"
+                    android:id="@+id/etLastNameSignUp"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:id="@+id/tiEmailSignUp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/tiLastNameSignUp">
+
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:ems="10"
+                    android:hint="@string/email"
+                    android:id="@+id/etEmailSignUp"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/tiPasswordSignUp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/tiEmailSignUp">
+            <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:hint="@string/password"
+                    android:ems="10"
+                    android:id="@+id/etPasswordSignUp"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+                style="@style/ButtonStyle"
+                android:text="@string/sign_up"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnSignUpSignUp" android:layout_marginTop="64dp"
+                app:layout_constraintTop_toBottomOf="@+id/tiPasswordSignUp" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp" android:layout_marginRight="16dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"/>
+        <TextView
+                android:text="@string/already_have_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="64dp" app:layout_constraintTop_toBottomOf="@+id/btnSignUpSignUp"
+                app:layout_constraintEnd_toStartOf="@+id/tvSignInSignUp"
+                app:layout_constraintHorizontal_chainStyle="packed"/>
+        <TextView
+                android:text="@string/or"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.498"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView"/>
+        <Button
+                android:text="@string/connect_with_facebook"
+                android:theme="@style/FacebookButtonStyle"
+                android:drawableLeft="@drawable/ic_facebook_f"
+                android:drawableStart="@drawable/ic_facebook_f"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnFacebookSignUp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.498"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView2"
+                android:layout_marginBottom="32dp" app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+                android:text="@string/sign_in"
+                android:layout_width="wrap_content"
+                android:textColor="@color/LightGreen900"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvSignInSignUp" app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                app:layout_constraintTop_toTopOf="@+id/textView"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"/>
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

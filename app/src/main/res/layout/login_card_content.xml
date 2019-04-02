@@ -7,7 +7,7 @@
 
     <android.support.design.widget.TextInputLayout
             android:layout_width="0dp"
-            android:id="@+id/text_input1"
+            android:id="@+id/tiUsernameSignIn"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
@@ -24,14 +24,14 @@
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:hint="@string/user_name"
-                android:id="@+id/editText"/>
+                android:id="@+id/etUserNameSignIn"/>
 
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/text_input2"
+            android:id="@+id/tiPasswordSignIn"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
@@ -39,14 +39,14 @@
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            app:layout_constraintTop_toBottomOf="@+id/text_input1">
+            app:layout_constraintTop_toBottomOf="@+id/tiUsernameSignIn">
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:hint="@string/password"
                 android:ems="10"
-                android:id="@+id/editText2"/>
+                android:id="@+id/etPasswordSignIn"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -64,8 +64,8 @@
             android:text="@string/log_in"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/button" android:layout_marginTop="64dp"
-            app:layout_constraintTop_toBottomOf="@+id/text_input2" app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/btnSignUpSignIn" android:layout_marginTop="64dp"
+            app:layout_constraintTop_toBottomOf="@+id/tiPasswordSignIn" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp" android:layout_marginRight="16dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"/>
@@ -80,7 +80,19 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             app:layout_constraintHorizontal_bias="0.497"
-            android:layout_marginTop="64dp" app:layout_constraintTop_toBottomOf="@+id/button"/>
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/tvSignUpSignIn"/>
+    <TextView
+            android:text="@string/sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvSignUpSignIn"
+            android:textColor="@color/LightGreen900"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintHorizontal_bias="0.497"
+            android:layout_marginTop="64dp" app:layout_constraintTop_toBottomOf="@+id/btnSignUpSignIn"/>
     <TextView
             android:text="@string/or"
             android:layout_width="wrap_content"
@@ -98,7 +110,7 @@
             android:drawableStart="@drawable/ic_facebook_f"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button2"
+            android:id="@+id/btnFacebookSignUp"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
