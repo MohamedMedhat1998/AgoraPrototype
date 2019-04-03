@@ -10,7 +10,7 @@
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".UserInterface.MainActivity">
+            tools:context=".UserInterface.SignActivity">
         <android.support.v7.widget.CardView
                 android:layout_width="300dp"
                 android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,7 @@
                 android:layout_marginBottom="@dimen/vertical_login_card_margin"
                 app:layout_constraintBottom_toBottomOf="parent">
             <FrameLayout
-                    android:id="@+id/signProcessContainer"
+                    android:id="@+id/signContainer"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
         </android.support.v7.widget.CardView>
