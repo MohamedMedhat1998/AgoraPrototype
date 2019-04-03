@@ -64,7 +64,7 @@
             android:text="@string/log_in"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/btnSignUpSignIn" android:layout_marginTop="64dp"
+            android:id="@+id/btnLoginSignIn" android:layout_marginTop="64dp"
             app:layout_constraintTop_toBottomOf="@+id/tiPasswordSignIn" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp" android:layout_marginRight="16dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
@@ -92,7 +92,7 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             app:layout_constraintHorizontal_bias="0.497"
-            android:layout_marginTop="64dp" app:layout_constraintTop_toBottomOf="@+id/btnSignUpSignIn"/>
+            android:layout_marginTop="64dp" app:layout_constraintTop_toBottomOf="@+id/btnLoginSignIn"/>
     <TextView
             android:text="@string/or"
             android:layout_width="wrap_content"

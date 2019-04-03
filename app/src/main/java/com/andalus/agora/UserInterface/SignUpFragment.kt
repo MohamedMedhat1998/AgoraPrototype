@@ -1,6 +1,7 @@
 package com.andalus.agora.UserInterface
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -44,6 +45,9 @@ class SignUpFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_sign_up, container, false)
         view.tvSignInSignUp.setOnClickListener {
             onViewClickedListener?.onViewClicked(it)
+        }
+        view.btnSignUpSignUp.setOnClickListener {
+            startActivity(Intent(activity, MainActivity::class.java))
         }
         return view
     }
