@@ -4,11 +4,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import com.andalus.agora.Objects.ElectionCategory
 import com.andalus.agora.R
 import kotlinx.android.synthetic.main.item_election_category_card.view.*
 
-class ElectionsCategoriesAdapter(val data: List<ElectionCategory>) :
+class ElectionsCategoriesAdapter(private val data: List<ElectionCategory>, private val onItemClicked: (Int) -> Unit) :
     RecyclerView.Adapter<ElectionsCategoriesAdapter.ElectionsCategoriesHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ElectionsCategoriesHolder {
@@ -22,6 +24,9 @@ class ElectionsCategoriesAdapter(val data: List<ElectionCategory>) :
         item.tvElectionCategoryCount.text = data[position].count.toString()
         item.ivElectionCategoryImage.setImageResource(data[position].imageId)
         item.tvElectionCategoryDescription.text = data[position].description
+        item.itemView.setOnClickListener {
+            onItemClicked(position)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -29,9 +34,9 @@ class ElectionsCategoriesAdapter(val data: List<ElectionCategory>) :
     }
 
     class ElectionsCategoriesHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvElectionCategoryName = itemView.tvElectionCategoryName
-        val tvElectionCategoryCount = itemView.tvElectionCategoryCount
-        val ivElectionCategoryImage = itemView.ivElectionCategoryImage
-        val tvElectionCategoryDescription = itemView.tvElectionCategoryDescription
+        val tvElectionCategoryName: TextView = itemView.tvElectionCategoryName
+        val tvElectionCategoryCount: TextView = itemView.tvElectionCategoryCount
+        val ivElectionCategoryImage: ImageView = itemView.ivElectionCategoryImage
+        val tvElectionCategoryDescription: TextView = itemView.tvElectionCategoryDescription
     }
 }

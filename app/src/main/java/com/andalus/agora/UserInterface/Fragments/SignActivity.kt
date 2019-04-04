@@ -1,8 +1,7 @@
-package com.andalus.agora.UserInterface
+package com.andalus.agora.UserInterface.Fragments
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.widget.Toast
 import com.andalus.agora.CallBacks.OnViewClickedListener
 import com.andalus.agora.R
 
@@ -20,18 +19,24 @@ class SignActivity : AppCompatActivity() {
 
         val fragmentManager = supportFragmentManager
 
-        fragmentManager.beginTransaction().add(R.id.signContainer, signUpFragment, SIGN_UP_FRAGMENT_TAG).commit()
+        fragmentManager.beginTransaction().add(R.id.signContainer, signUpFragment,
+            SIGN_UP_FRAGMENT_TAG
+        ).commit()
 
         signUpFragment.onViewClickedListener = OnViewClickedListener {
             if (it.id == R.id.tvSignInSignUp) {
-                fragmentManager.beginTransaction().replace(R.id.signContainer, loginFragment, LOGIN_FRAGMENT_TAG)
+                fragmentManager.beginTransaction().replace(R.id.signContainer, loginFragment,
+                    LOGIN_FRAGMENT_TAG
+                )
                     .commit()
             }
         }
 
         loginFragment.onViewClickedListener = OnViewClickedListener {
             if (it.id == R.id.tvSignUpSignIn) {
-                fragmentManager.beginTransaction().replace(R.id.signContainer, signUpFragment, LOGIN_FRAGMENT_TAG)
+                fragmentManager.beginTransaction().replace(R.id.signContainer, signUpFragment,
+                    LOGIN_FRAGMENT_TAG
+                )
                     .commit()
             }
         }

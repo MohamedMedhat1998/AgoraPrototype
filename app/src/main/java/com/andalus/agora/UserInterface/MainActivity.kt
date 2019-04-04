@@ -1,27 +1,33 @@
 package com.andalus.agora.UserInterface
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
+import android.support.v4.app.FragmentManager
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
-import com.andalus.agora.Adapters.ElectionsCategoriesAdapter
-import com.andalus.agora.Objects.ElectionCategory
+import android.widget.ImageView
 import com.andalus.agora.R
+import com.andalus.agora.UserInterface.Fragments.AboutFragment
+import com.andalus.agora.UserInterface.Fragments.ElectionsCategoriesFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.nav_header_main.*
+
+private const val FRAGMENT_CATEGORIES_KEY = "fragment-categories-key"
+private const val FRAGMENT_ABOUT_KEY = "fragment-about-key"
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    var fragmentManager: FragmentManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -31,17 +37,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         nav_view.setNavigationItemSelectedListener(this)
 
-        //-------
-        val categories = listOf(
-            ElectionCategory("Total Elections", 52, "Total election", R.color.OrangeA700),
-            ElectionCategory("Pending", 7, "Total pending elections", R.color.Green700),
-            ElectionCategory("Active", 22, "Total active elections", R.color.Red700),
-            ElectionCategory("Finished", 12, "Total finished election", R.color.LightBlueA400)
-        )
+        //------------
+        fragmentManager = supportFragmentManager
+        loadHomeFragment()
 
-        val rvElectionCategories = rvElectionsCategories
-        rvElectionCategories.layoutManager = LinearLayoutManager(this)
-        rvElectionCategories.adapter = ElectionsCategoriesAdapter(categories)
+        val navigationView = nav_view
+        val view = navigationView.getHeaderView(0)
+        val ivProfilePicture: ImageView = view.findViewById(R.id.ivProfileNavHeader)
+
+        ivProfilePicture.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
 
     }
 
@@ -72,27 +78,34 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_camera -> {
-                // Handle the camera action
+            R.id.nav_home -> {
+                loadHomeFragment()
             }
-            R.id.nav_gallery -> {
-
+            R.id.nav_about -> {
+                loadAboutFragment()
             }
-            R.id.nav_slideshow -> {
-
-            }
-            R.id.nav_manage -> {
-
-            }
-            R.id.nav_share -> {
-
-            }
-            R.id.nav_send -> {
-
+            R.id.nav_help -> {
+                //TODO create and implement help fragment
             }
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun loadHomeFragment() {
+        fragmentManager?.beginTransaction()
+            ?.replace(
+                R.id.mainActivityContainer, ElectionsCategoriesFragment.newInstance(),
+                FRAGMENT_CATEGORIES_KEY
+            )?.commit()
+    }
+
+    private fun loadAboutFragment() {
+        fragmentManager?.beginTransaction()
+            ?.replace(
+                R.id.mainActivityContainer, AboutFragment.newInstance(),
+                FRAGMENT_ABOUT_KEY
+            )?.commit()
     }
 }

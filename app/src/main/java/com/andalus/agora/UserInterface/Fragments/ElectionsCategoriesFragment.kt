@@ -1,16 +1,18 @@
-package com.andalus.agora.UserInterface
+package com.andalus.agora.UserInterface.Fragments
 
 
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.andalus.agora.CallBacks.OnViewClickedListener
-
+import com.andalus.agora.Adapters.ElectionsCategoriesAdapter
+import com.andalus.agora.Objects.ElectionCategory
 import com.andalus.agora.R
-import kotlinx.android.synthetic.main.fragment_sign_up.view.*
+import com.andalus.agora.UserInterface.ElectionsListActivity
+import kotlinx.android.synthetic.main.fragment_elections_categories.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -19,16 +21,14 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [SignUpFragment.newInstance] factory method to
+ * Use the [ElectionsCategoriesFragment.newInstance] factory method to
  * create an instance of this fragment.
  *
  */
-class SignUpFragment : Fragment() {
+class ElectionsCategoriesFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
-    var onViewClickedListener: OnViewClickedListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,12 +42,18 @@ class SignUpFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_sign_up, container, false)
-        view.tvSignInSignUp.setOnClickListener {
-            onViewClickedListener?.onViewClicked(it)
-        }
-        view.btnSignUpSignUp.setOnClickListener {
-            startActivity(Intent(activity, MainActivity::class.java))
+        val view = inflater.inflate(R.layout.fragment_elections_categories, container, false)
+        val categories = listOf(
+            ElectionCategory("Total Elections", 52, "Total election", R.color.OrangeA700),
+            ElectionCategory("Pending", 7, "Total pending elections", R.color.Green700),
+            ElectionCategory("Active", 22, "Total active elections", R.color.Red700),
+            ElectionCategory("Finished", 12, "Total finished election", R.color.LightBlueA400)
+        )
+
+        val rvElectionCategories = view.rvElectionsCategories
+        rvElectionCategories.layoutManager = LinearLayoutManager(view.context)
+        rvElectionCategories.adapter = ElectionsCategoriesAdapter(categories){
+            startActivity(Intent(activity,ElectionsListActivity::class.java))
         }
         return view
     }
@@ -60,12 +66,12 @@ class SignUpFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment SignUpFragment.
+         * @return A new instance of fragment ElectionsCategoriesFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String = "", param2: String = "") =
-            SignUpFragment().apply {
+            ElectionsCategoriesFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
