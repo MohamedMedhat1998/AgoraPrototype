@@ -26,4 +26,13 @@
     <string name="about">About</string>
     <string name="help">Help</string>
     <string name="welcome_to_agora_vote">Welcome To Agora Vote!</string>
+    <string name="create_election">Create Election</string>
+    <string name="election_name">Election Name *</string>
+    <string name="election_description">Election Description *</string>
+    <string name="start_date">Start Date *</string>
+    <string name="end_date">End Date *</string>
+    <string name="candidate_name">Candidate Name *</string>
+    <string name="add_candidate">Add Candidate</string>
+    <string name="candidates">Candidates</string>
+    <string name="fill_the_form_to_add_more_candidates">Fill the form to add more candidates</string>
 </resources>

@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import com.andalus.agora.Adapters.ElectionsCategoriesAdapter
 import com.andalus.agora.Objects.ElectionCategory
 import com.andalus.agora.R
+import com.andalus.agora.UserInterface.CreateElectionActivity
 import com.andalus.agora.UserInterface.ElectionsListActivity
 import kotlinx.android.synthetic.main.fragment_elections_categories.view.*
 
@@ -55,6 +56,11 @@ class ElectionsCategoriesFragment : Fragment() {
         rvElectionCategories.adapter = ElectionsCategoriesAdapter(categories){
             startActivity(Intent(activity,ElectionsListActivity::class.java))
         }
+        val btnCreateElection = view.btnCreateElection
+        btnCreateElection.setOnClickListener {
+            startActivity(Intent(activity,CreateElectionActivity::class.java))
+        }
+
         return view
     }
 

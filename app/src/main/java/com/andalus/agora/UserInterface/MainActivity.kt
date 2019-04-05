@@ -15,7 +15,6 @@ import com.andalus.agora.UserInterface.Fragments.AboutFragment
 import com.andalus.agora.UserInterface.Fragments.ElectionsCategoriesFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import kotlinx.android.synthetic.main.nav_header_main.*
 
 private const val FRAGMENT_CATEGORIES_KEY = "fragment-categories-key"
 private const val FRAGMENT_ABOUT_KEY = "fragment-about-key"
