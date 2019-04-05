@@ -1,13 +1,17 @@
-package com.andalus.agora.UserInterface.Fragments
+package com.andalus.agora.UI.Fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.andalus.agora.CallBacks.OnViewClickedListener
 
 import com.andalus.agora.R
+import com.andalus.agora.UI.Activities.MainActivity
+import kotlinx.android.synthetic.main.fragment_login.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -16,14 +20,16 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [AboutFragment.newInstance] factory method to
+ * Use the [LoginFragment.newInstance] factory method to
  * create an instance of this fragment.
  *
  */
-class AboutFragment : Fragment() {
+class LoginFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    var onViewClickedListener: OnViewClickedListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +43,14 @@ class AboutFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_about, container, false)
+        val view = inflater.inflate(R.layout.fragment_login, container, false)
+        view.tvSignUpSignIn.setOnClickListener {
+            onViewClickedListener?.onViewClicked(it)
+        }
+        view.btnLoginSignIn.setOnClickListener {
+            startActivity(Intent(activity, MainActivity::class.java))
+        }
+        return view
     }
 
 
@@ -48,12 +61,12 @@ class AboutFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment AboutFragment.
+         * @return A new instance of fragment LoginFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String = "", param2: String = "") =
-            AboutFragment().apply {
+            LoginFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

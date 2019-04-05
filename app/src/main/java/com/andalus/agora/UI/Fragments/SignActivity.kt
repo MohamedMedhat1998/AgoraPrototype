@@ -1,4 +1,4 @@
-package com.andalus.agora.UserInterface.Fragments
+package com.andalus.agora.UI.Fragments
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

@@ -35,4 +35,15 @@
     <string name="add_candidate">Add Candidate</string>
     <string name="candidates">Candidates</string>
     <string name="fill_the_form_to_add_more_candidates">Fill the form to add more candidates</string>
+    <string name="select_voting_algorithm">Select voting algorithm</string>
+    <string name="get_real_time_results">Get real time results?</string>
+    <string name="invite_voters">Invite voters?</string>
+    <string name="how_secrete_are_the_ballots">How secrete are the ballots?</string>
+    <string name="who_can_see_the_list_of_voters">Who can see the list of voters?</string>
+    <string name="completely_secrete">Ballots are completely secrete and never shown to any one</string>
+    <string name="visible_only_to_me">Ballots are visible only to me</string>
+    <string name="visible_to_everyone">Ballots are visible to everyone with access to the election</string>
+    <string name="only_me">Only me</string>
+    <string name="everyone_with_access">Everyone with access to the election</string>
+    <string name="finish">Finish</string>
 </resources>

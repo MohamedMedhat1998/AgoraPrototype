@@ -1,4 +1,4 @@
-package com.andalus.agora.UserInterface
+package com.andalus.agora.UI.Activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,8 +11,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
 import com.andalus.agora.R
-import com.andalus.agora.UserInterface.Fragments.AboutFragment
-import com.andalus.agora.UserInterface.Fragments.ElectionsCategoriesFragment
+import com.andalus.agora.UI.Fragments.AboutFragment
+import com.andalus.agora.UI.Fragments.ElectionsCategoriesFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 

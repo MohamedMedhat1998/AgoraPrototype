@@ -9,14 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserInterface.CreateElectionActivity"></activity>
-        <activity android:name=".UserInterface.ElectionsListActivity" />
-        <activity android:name=".UserInterface.ProfileActivity" />
+        <activity android:name=".UI.Activities.CreateElectionActivity"></activity>
+        <activity android:name=".UI.Activities.ElectionsListActivity" />
+        <activity android:name=".UI.Activities.ProfileActivity" />
         <activity
-            android:name=".UserInterface.MainActivity"
+            android:name=".UI.Activities.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".UserInterface.Fragments.SignActivity">
+        <activity android:name=".UI.Fragments.SignActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

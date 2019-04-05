@@ -1,4 +1,4 @@
-package com.andalus.agora.UserInterface.Fragments
+package com.andalus.agora.UI.Fragments
 
 
 import android.content.Intent
@@ -10,8 +10,8 @@ import android.view.ViewGroup
 import com.andalus.agora.CallBacks.OnViewClickedListener
 
 import com.andalus.agora.R
-import com.andalus.agora.UserInterface.MainActivity
-import kotlinx.android.synthetic.main.fragment_login.view.*
+import com.andalus.agora.UI.Activities.MainActivity
+import kotlinx.android.synthetic.main.fragment_sign_up.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,11 +20,11 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
+ * Use the [SignUpFragment.newInstance] factory method to
  * create an instance of this fragment.
  *
  */
-class LoginFragment : Fragment() {
+class SignUpFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -43,11 +43,11 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
-        view.tvSignUpSignIn.setOnClickListener {
+        val view = inflater.inflate(R.layout.fragment_sign_up, container, false)
+        view.tvSignInSignUp.setOnClickListener {
             onViewClickedListener?.onViewClicked(it)
         }
-        view.btnLoginSignIn.setOnClickListener {
+        view.btnSignUpSignUp.setOnClickListener {
             startActivity(Intent(activity, MainActivity::class.java))
         }
         return view
@@ -61,12 +61,12 @@ class LoginFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment LoginFragment.
+         * @return A new instance of fragment SignUpFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String = "", param2: String = "") =
-            LoginFragment().apply {
+            SignUpFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
