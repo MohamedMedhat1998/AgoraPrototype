@@ -3,11 +3,15 @@ package com.andalus.agora.UI.Fragments.ElectionCreationFragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.andalus.agora.Adapters.VotingAlgorithmAdapter
+import com.andalus.agora.Objects.VotingAlgorithm
 
 import com.andalus.agora.R
+import kotlinx.android.synthetic.main.fragment_voting_algorithm.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,8 +41,33 @@ class VotingAlgorithmFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_voting_algorithm, container, false)
+        val view = inflater.inflate(R.layout.fragment_voting_algorithm, container, false)
+        val rvVotingAlgorithm = view.rvVotingAlgorithm
+        val data = mutableListOf(VotingAlgorithm("Oklahoma"))
+        data.apply {
+            add(VotingAlgorithm("RangeVoting"))
+            add(VotingAlgorithm("RankedParis"))
+            add(VotingAlgorithm("Satisfaction Approval Voting"))
+            add(VotingAlgorithm("Sequential Proportional Approval Voting"))
+            add(VotingAlgorithm("SmithSet"))
+            add(VotingAlgorithm("Approval"))
+            add(VotingAlgorithm("Exhaustive ballot"))
+            add(VotingAlgorithm("Baldwin"))
+            add(VotingAlgorithm("Exhaustive ballot With dropoff"))
+            add(VotingAlgorithm("Uncovered Set"))
+            add(VotingAlgorithm("Copeland"))
+            add(VotingAlgorithm("Minimax Condorcet"))
+            add(VotingAlgorithm("Random Ballot"))
+            add(VotingAlgorithm("Borda"))
+            add(VotingAlgorithm("Kemeny Young"))
+            add(VotingAlgorithm("Nanson"))
+            add(VotingAlgorithm("Instant Runoff 2-round"))
+            add(VotingAlgorithm("Contingent Method"))
+        }
+        rvVotingAlgorithm.adapter = VotingAlgorithmAdapter(data)
+        rvVotingAlgorithm.setHasFixedSize(false)
+        rvVotingAlgorithm.layoutManager = LinearLayoutManager(context)
+        return view
     }
 
 

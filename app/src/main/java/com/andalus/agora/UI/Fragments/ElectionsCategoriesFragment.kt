@@ -8,11 +8,13 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ScrollView
 import com.andalus.agora.Adapters.ElectionsCategoriesAdapter
 import com.andalus.agora.Objects.ElectionCategory
 import com.andalus.agora.R
 import com.andalus.agora.UI.Activities.CreateElectionActivity
 import com.andalus.agora.UI.Activities.ElectionsListActivity
+import kotlinx.android.synthetic.main.fragment_elections_categories.*
 import kotlinx.android.synthetic.main.fragment_elections_categories.view.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -53,6 +55,8 @@ class ElectionsCategoriesFragment : Fragment() {
 
         val rvElectionCategories = view.rvElectionsCategories
         rvElectionCategories.layoutManager = LinearLayoutManager(view.context)
+        rvElectionCategories.setHasFixedSize(false)
+        rvElectionCategories.isNestedScrollingEnabled = true
         rvElectionCategories.adapter = ElectionsCategoriesAdapter(categories){
             startActivity(Intent(activity, ElectionsListActivity::class.java))
         }
@@ -60,7 +64,6 @@ class ElectionsCategoriesFragment : Fragment() {
         btnCreateElection.setOnClickListener {
             startActivity(Intent(activity, CreateElectionActivity::class.java))
         }
-
         return view
     }
 
