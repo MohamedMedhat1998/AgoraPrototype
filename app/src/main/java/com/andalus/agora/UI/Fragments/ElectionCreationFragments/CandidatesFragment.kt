@@ -4,6 +4,7 @@ package com.andalus.agora.UI.Fragments.ElectionCreationFragments
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.CardView
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -48,6 +49,7 @@ class CandidatesFragment : Fragment() {
         rvCandidates.adapter = adapter
         rvCandidates.layoutManager = LinearLayoutManager(context)
         rvCandidates.setHasFixedSize(false)
+        rvCandidates.addItemDecoration(DividerItemDecoration(context,LinearLayoutManager(context).orientation))
         val etCandidateName = view.etCandidateName
         val btnAddCandidate = view.btnAddCandidate
         btnAddCandidate.setOnClickListener {

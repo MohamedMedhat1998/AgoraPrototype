@@ -54,11 +54,13 @@
 
                 <EditText
                     android:id="@+id/etStartDate"
+                    android:clickable="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/start_date"
-                    android:inputType="datetime" />
+                    android:inputType="datetime"
+                    android:focusable="true" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -80,11 +82,13 @@
 
                 <EditText
                     android:id="@+id/etEndDate"
+                    android:clickable="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/end_date"
-                    android:inputType="datetime" />
+                    android:inputType="datetime"
+                    android:focusable="true" />
 
             </android.support.design.widget.TextInputLayout>
 
