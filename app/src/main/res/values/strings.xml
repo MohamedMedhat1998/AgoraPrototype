@@ -12,9 +12,6 @@
     <string name="last_name">Last name *</string>
     <string name="email">Email *</string>
     <string name="sign_up">Sign up</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -59,4 +56,19 @@
     <string name="change_password">Change Password</string>
     <string name="new_password">New Password</string>
     <string name="change">Change</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="agora_description">Agora vote is a voting platform where users can create elections and invite friends to cast their votes.</string>
+    <string name="what_agora_supports">It supports a wide range of voting algorithms some of which are Majority, Egalitarian, Australian STV just to name a few</string>
+    <string name="learn_more">Learn More</string>
+    <string name="elections">Elections:</string>
+    <string name="all">All</string>
+    <string name="pending">Pending</string>
+    <string name="active">Active</string>
+    <string name="finished">Finished</string>
+    <string name="election">Election:</string>
+    <string name="description">Description</string>
+    <string name="important">Important</string>
+    <string name="start">Start:</string>
+    <string name="status">Status:</string>
+    <string name="finish_colon">Finish:</string>
 </resources>

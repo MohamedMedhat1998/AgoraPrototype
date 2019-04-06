@@ -12,10 +12,12 @@ import android.view.MenuItem
 import android.widget.ImageView
 import com.andalus.agora.R
 import com.andalus.agora.UI.Fragments.AboutFragment
-import com.andalus.agora.UI.Fragments.ElectionsCategoriesFragment
+import com.andalus.agora.UI.Fragments.DashboardFragment
+import com.andalus.agora.UI.Fragments.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
+private const val FRAGMENT_HOME_KEY = "fragment-home-key"
 private const val FRAGMENT_CATEGORIES_KEY = "fragment-categories-key"
 private const val FRAGMENT_ABOUT_KEY = "fragment-about-key"
 
@@ -80,6 +82,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_home -> {
                 loadHomeFragment()
             }
+            R.id.nav_dashboard -> {
+                loadDashboardFragment()
+            }
             R.id.nav_about -> {
                 loadAboutFragment()
             }
@@ -95,7 +100,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun loadHomeFragment() {
         fragmentManager?.beginTransaction()
             ?.replace(
-                R.id.mainActivityContainer, ElectionsCategoriesFragment.newInstance(),
+                R.id.mainActivityContainer, HomeFragment.newInstance(),
+                FRAGMENT_HOME_KEY
+            )?.commit()
+    }
+
+    private fun loadDashboardFragment() {
+        fragmentManager?.beginTransaction()
+            ?.replace(
+                R.id.mainActivityContainer, DashboardFragment.newInstance(),
                 FRAGMENT_CATEGORIES_KEY
             )?.commit()
     }

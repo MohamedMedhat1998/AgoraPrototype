@@ -10,7 +10,7 @@ import com.andalus.agora.Objects.ElectionCategory
 import com.andalus.agora.R
 import kotlinx.android.synthetic.main.item_election_category_card.view.*
 
-class ElectionsCategoriesAdapter(private val data: List<ElectionCategory>, private val onItemClicked: (Int) -> Unit) :
+class ElectionsCategoriesAdapter(private val data: List<ElectionCategory>) :
     RecyclerView.Adapter<ElectionsCategoriesAdapter.ElectionsCategoriesHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ElectionsCategoriesHolder {
@@ -24,9 +24,6 @@ class ElectionsCategoriesAdapter(private val data: List<ElectionCategory>, priva
         item.tvElectionCategoryCount.text = data[position].count.toString()
         item.ivElectionCategoryImage.setImageResource(data[position].imageId)
         item.tvElectionCategoryDescription.text = data[position].description
-        item.itemView.setOnClickListener {
-            onItemClicked(position)
-        }
     }
 
     override fun getItemCount(): Int {
