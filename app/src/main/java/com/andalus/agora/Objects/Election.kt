@@ -4,7 +4,7 @@ data class Election(
     var name: String = "",
     var description: String = "",
     var startDate: String = "",
-    var endDate: String = "",
+    var finishDate: String = "",
     var algorithm: String = "",
     var realTimeResults: Boolean = false,
     var inviteVoters: Boolean = false,

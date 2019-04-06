@@ -8,7 +8,9 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.andalus.agora.Adapters.ElectionsAdapter
 import com.andalus.agora.Adapters.ElectionsCategoriesAdapter
+import com.andalus.agora.Objects.Election
 import com.andalus.agora.Objects.ElectionCategory
 import com.andalus.agora.R
 import com.andalus.agora.UI.Activities.CreateElectionActivity
@@ -43,22 +45,215 @@ class DashboardFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
+
+        val pendingElections = mutableListOf<Election>()
+        pendingElections.apply {
+            add(
+                Election(
+                    "Demo Election Name",
+                    "Demo Election Description",
+                    "4/4/2019, 5:24",
+                    "20/4/2019, 12:00",
+                    "Oklahoma",
+                    false,
+                    false,
+                    "only me",
+                    "anyone",
+                    "Pending",
+                    mutableListOf("First Candidate", "Second Candidate")
+                )
+            )
+            add(
+                Election(
+                    "Demo Election Name",
+                    "Demo Election Description",
+                    "4/4/2019, 5:24",
+                    "20/4/2019, 12:00",
+                    "Oklahoma",
+                    false,
+                    false,
+                    "only me",
+                    "anyone",
+                    "Pending",
+                    mutableListOf("First Candidate", "Second Candidate")
+                )
+            )
+            add(
+                Election(
+                    "Demo Election Name",
+                    "Demo Election Description",
+                    "4/4/2019, 5:24",
+                    "20/4/2019, 12:00",
+                    "Oklahoma",
+                    false,
+                    false,
+                    "only me",
+                    "anyone",
+                    "Pending",
+                    mutableListOf("First Candidate", "Second Candidate")
+                )
+            )
+
+        }
+        val activeElections = mutableListOf<Election>()
+
+        activeElections.apply {
+            add(
+                Election(
+                    "Demo Election Name",
+                    "Demo Election Description",
+                    "4/4/2019, 5:24",
+                    "20/4/2019, 12:00",
+                    "Oklahoma",
+                    false,
+                    false,
+                    "only me",
+                    "anyone",
+                    "Active",
+                    mutableListOf("First Candidate", "Second Candidate")
+                )
+            )
+            add(
+                Election(
+                    "Demo Election Name",
+                    "Demo Election Description",
+                    "4/4/2019, 5:24",
+                    "20/4/2019, 12:00",
+                    "Oklahoma",
+                    false,
+                    false,
+                    "only me",
+                    "anyone",
+                    "Active",
+                    mutableListOf("First Candidate", "Second Candidate")
+                )
+            )
+            add(
+                Election(
+                    "Demo Election Name",
+                    "Demo Election Description",
+                    "4/4/2019, 5:24",
+                    "20/4/2019, 12:00",
+                    "Oklahoma",
+                    false,
+                    false,
+                    "only me",
+                    "anyone",
+                    "Active",
+                    mutableListOf("First Candidate", "Second Candidate")
+                )
+            )
+        }
+
+        val finishedElections = mutableListOf<Election>()
+
+        finishedElections.apply {
+            add(
+                Election(
+                    "Demo Election Name",
+                    "Demo Election Description",
+                    "4/4/2019, 5:24",
+                    "20/4/2019, 12:00",
+                    "Oklahoma",
+                    false,
+                    false,
+                    "only me",
+                    "anyone",
+                    "Finished",
+                    mutableListOf("First Candidate", "Second Candidate")
+                )
+            )
+            add(
+                Election(
+                    "Demo Election Name",
+                    "Demo Election Description",
+                    "4/4/2019, 5:24",
+                    "20/4/2019, 12:00",
+                    "Oklahoma",
+                    false,
+                    false,
+                    "only me",
+                    "anyone",
+                    "Finished",
+                    mutableListOf("First Candidate", "Second Candidate")
+                )
+            )
+            add(
+                Election(
+                    "Demo Election Name",
+                    "Demo Election Description",
+                    "4/4/2019, 5:24",
+                    "20/4/2019, 12:00",
+                    "Oklahoma",
+                    false,
+                    false,
+                    "only me",
+                    "anyone",
+                    "Finished",
+                    mutableListOf("First Candidate", "Second Candidate")
+                )
+            )
+        }
+
+        val totalElections = mutableListOf<Election>()
+        totalElections.apply {
+            addAll(pendingElections)
+            addAll(activeElections)
+            addAll(finishedElections)
+        }
+
         val categories = listOf(
-            ElectionCategory("Total Elections", 52, "Total election", R.color.OrangeA700),
-            ElectionCategory("Pending", 7, "Total pending elections", R.color.Green700),
-            ElectionCategory("Active", 22, "Total active elections", R.color.Red700),
-            ElectionCategory("Finished", 12, "Total finished election", R.color.LightBlueA400)
+            ElectionCategory("Total Elections", totalElections.size, "Total election", R.color.OrangeA700),
+            ElectionCategory("Pending", pendingElections.size, "Total pending elections", R.color.Green700),
+            ElectionCategory("Active", activeElections.size, "Total active elections", R.color.Red700),
+            ElectionCategory("Finished", finishedElections.size, "Total finished election", R.color.LightBlueA400)
         )
 
         val rvElectionCategories = view.rvElectionsCategories
-        rvElectionCategories.layoutManager = LinearLayoutManager(view.context)
-        rvElectionCategories.setHasFixedSize(false)
-        rvElectionCategories.isNestedScrollingEnabled = true
-        rvElectionCategories.adapter = ElectionsCategoriesAdapter(categories)
+        rvElectionCategories.apply {
+            layoutManager = LinearLayoutManager(view.context)
+            setHasFixedSize(false)
+            isNestedScrollingEnabled = true
+            adapter = ElectionsCategoriesAdapter(categories)
+        }
+
+        val electionsAdapter = ElectionsAdapter(totalElections)
+
+        val rvElections = view.rvElectionsList
+        rvElections.apply {
+            layoutManager = LinearLayoutManager(view.context)
+            adapter = electionsAdapter
+        }
+
         val btnCreateElection = view.btnCreateElection
         btnCreateElection.setOnClickListener {
             startActivity(Intent(activity, CreateElectionActivity::class.java))
         }
+
+        val btnAllElections = view.btnAllCategories
+        btnAllElections.setOnClickListener {
+            electionsAdapter.data = totalElections
+            electionsAdapter.notifyDataSetChanged()
+        }
+
+        val btnPendingElections = view.btnPendingCategories
+        btnPendingElections.setOnClickListener {
+            electionsAdapter.data = pendingElections
+            electionsAdapter.notifyDataSetChanged()
+        }
+
+        val btnActiveElections = view.btnActiveCategories
+        btnActiveElections.setOnClickListener {
+            electionsAdapter.data = activeElections
+            electionsAdapter.notifyDataSetChanged()
+        }
+
+        val btnFinishedElections = view.btnFinishedCategories
+        btnFinishedElections.setOnClickListener {
+            electionsAdapter.data = finishedElections
+            electionsAdapter.notifyDataSetChanged()
+        }
+
         return view
     }
 
