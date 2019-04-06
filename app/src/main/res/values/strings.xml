@@ -71,4 +71,9 @@
     <string name="start">Start:</string>
     <string name="status">Status:</string>
     <string name="finish_colon">Finish:</string>
+    <string name="details">Details</string>
+    <string name="basic">\tBasic\t</string>
+    <string name="voters">\tVoters\t</string>
+    <string name="ballots">\tBallots\t</string>
+    <string name="results">\tResults\t</string>
 </resources>

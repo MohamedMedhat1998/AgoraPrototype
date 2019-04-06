@@ -10,10 +10,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.andalus.agora.Adapters.ElectionsAdapter
 import com.andalus.agora.Adapters.ElectionsCategoriesAdapter
+import com.andalus.agora.CallBacks.OnViewClickedListener
 import com.andalus.agora.Objects.Election
 import com.andalus.agora.Objects.ElectionCategory
 import com.andalus.agora.R
 import com.andalus.agora.UI.Activities.CreateElectionActivity
+import com.andalus.agora.UI.Activities.ElectionDetailsActivity
 import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -217,7 +219,9 @@ class DashboardFragment : Fragment() {
             adapter = ElectionsCategoriesAdapter(categories)
         }
 
-        val electionsAdapter = ElectionsAdapter(totalElections)
+        val electionsAdapter = ElectionsAdapter(totalElections, OnViewClickedListener {
+            startActivity(Intent(activity, ElectionDetailsActivity::class.java))
+        })
 
         val rvElections = view.rvElectionsList
         rvElections.apply {

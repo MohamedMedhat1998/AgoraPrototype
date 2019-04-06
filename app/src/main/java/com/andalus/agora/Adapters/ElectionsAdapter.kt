@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import com.andalus.agora.CallBacks.OnViewClickedListener
 import com.andalus.agora.Objects.Election
 import com.andalus.agora.R
 import kotlinx.android.synthetic.main.item_election.view.*
 
-class ElectionsAdapter(var data: MutableList<Election> = mutableListOf()) : RecyclerView.Adapter<ElectionsAdapter.ElectionHolder>() {
-
+class ElectionsAdapter(var data: MutableList<Election> = mutableListOf(),val onViewClickedListener : OnViewClickedListener) : RecyclerView.Adapter<ElectionsAdapter.ElectionHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ElectionHolder {
         val inflater = LayoutInflater.from(viewGroup.context)
         val view = inflater.inflate(R.layout.item_election, viewGroup, false)
@@ -28,6 +28,9 @@ class ElectionsAdapter(var data: MutableList<Election> = mutableListOf()) : Recy
         item.tvStart.text = data[position].startDate
         item.tvFinish.text = data[position].finishDate
         item.tvStatus.text = data[position].status
+        item.ibView.setOnClickListener {
+            onViewClickedListener.onViewClicked(it)
+        }
     }
 
     override fun getItemCount(): Int {

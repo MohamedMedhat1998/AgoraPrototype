@@ -1,9 +1,11 @@
-package com.andalus.agora.UI.Fragments
+package com.andalus.agora.UI.Activities
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.andalus.agora.CallBacks.OnViewClickedListener
 import com.andalus.agora.R
+import com.andalus.agora.UI.Fragments.LoginFragment
+import com.andalus.agora.UI.Fragments.SignUpFragment
 
 private const val LOGIN_FRAGMENT_TAG = "login-fragment-tag"
 private const val SIGN_UP_FRAGMENT_TAG = "sign-up-fragment-tag"
